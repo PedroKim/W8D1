@@ -1,0 +1,12 @@
+<li><a href="<%= comment_url(comment) %>"><%= comment.content %></a>
+    | by <%= comment.author.username %> 
+    | created on: <%= comment.created_at %>
+<% @all_comments.each do |c2| %>
+    <% if c2.parent_comment_id == comment.id %>
+        <ul><%= render 'comments/comment', comment: c2 %></ul>
+    <% end %>
+<% end %>
+</li>
+
+
+
